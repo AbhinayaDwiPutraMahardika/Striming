@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prestasi Moklet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Animasi Running Text */
+      @keyframes marquee {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      .running-text {
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+        min-width: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans h-screen flex flex-col m-0 p-0">
+    <!-- Header -->
+    <header
+      class="bg-blue-700 text-white text-center py-4 text-xl font-bold fixed top-0 w-full z-10"
+    >
+      Prestasi Moklet
+    </header>
+
+    <!-- Container -->
+    <div class="flex flex-1 flex-col md:flex-row mt-16 mb-16 w-full">
+      <!-- Video -->
+      <div class="flex-1">
+        <iframe
+          id="videoFrame"
+          class="w-full h-[calc(100vh-128px)] rounded-lg shadow-lg m-0 p-0"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="w-full md:w-1/4 flex flex-col gap-4 p-4 bg-white shadow-lg">
+        <button
+          class="py-3 bg-white text-black border border-gray-300 rounded-lg shadow-md hover:bg-gray-200 transition"
+          data-video="https://www.youtube.com/embed/gje9AbCJ9eA?si=zen2mEZFyIVuwMlc"
+        >
+          Prestasi 1
+        </button>
+        <button
+          class="py-3 bg-white text-black border border-gray-300 rounded-lg shadow-md hover:bg-gray-200 transition"
+          data-video="https://www.youtube.com/embed/nvv2D6Abv88?si=WSqC_J-3e3ap-da3"
+        >
+          Prestasi 2
+        </button>
+        <button
+          class="py-3 bg-white text-black border border-gray-300 rounded-lg shadow-md hover:bg-gray-200 transition"
+          data-video="https://www.youtube.com/embed/tgbNymZ7vqY"
+        >
+          Prestasi 3
+        </button>
+        <button
+          class="py-3 bg-white text-black border border-gray-300 rounded-lg shadow-md hover:bg-gray-200 transition"
+          data-video="https://www.youtube.com/embed/O6t5t8E4DMs"
+        >
+          Prestasi 4
+        </button>
+        <button
+          class="py-3 bg-white text-black border border-gray-300 rounded-lg shadow-md hover:bg-gray-200 transition"
+          data-video="https://www.youtube.com/embed/fjSfF3lTce8?si=DVx_Xbs-z64xbzJg"
+        >
+          Prestasi 5
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer dengan Running Text -->
+    <footer
+      class="bg-blue-700 text-white text-center py-3 fixed bottom-0 w-full overflow-hidden"
+    >
+      <div class="running-text">
+        Selamat Datang di Website Prestasi Moklet! 🎉 Lihat berbagai prestasi
+        terbaru dari siswa terbaik kami!
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Ambil semua tombol
+      const buttons = document.querySelectorAll("button");
+
+      // Ambil elemen iframe
+      const videoFrame = document.getElementById("videoFrame");
+
+      // Tambahkan event listener ke setiap tombol
+      buttons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const videoUrl = this.getAttribute("data-video");
+          videoFrame.src = videoUrl;
+        });
+      });
+    </script>
+  </body>
+</html>
